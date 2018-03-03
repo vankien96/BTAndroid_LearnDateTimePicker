@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -71,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(MainActivity.this,"Please fill all data first",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        lvCongViec.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                arrJobs.remove(position);
+                arrayAdapter.notifyDataSetChanged();
+                Toast.makeText(MainActivity.this,"You deleted object at index "+position,Toast.LENGTH_LONG).show();
+                return false;
             }
         });
     }
