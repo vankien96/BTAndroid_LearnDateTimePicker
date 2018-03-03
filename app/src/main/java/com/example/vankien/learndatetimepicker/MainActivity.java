@@ -84,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        lvCongViec.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                WorkModel data = arrJobs.get(position);
+                Toast.makeText(MainActivity.this,"Bạn đã chọn : "+data.getDesciption(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void addControls() {
